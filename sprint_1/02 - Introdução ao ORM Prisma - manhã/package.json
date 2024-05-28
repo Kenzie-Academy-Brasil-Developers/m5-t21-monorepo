@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "scripts": {
+    "dev": "tsnd --cls src/app.ts",
+    "ola": "echo 'olá mundo'"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "prisma": "^5.14.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  }
+}
