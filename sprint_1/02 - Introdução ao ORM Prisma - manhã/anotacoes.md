@@ -2,7 +2,7 @@
 
 Express -> framework 'non opinionated' -> temos que criar a arquitetura (divisão de pastas e arquivos) manualmente
 
-NestJS (utiliza express por baixo dos panos) -> framework 'opionated' -> Dá um caminho de organização e é mais restrito quanto a implementação das funcionalidades. Geralmente já criar uma estrutura propria de diretórios e conta com varios 'plugins' para operações recorrentes na construção de APIs (autenticação, segurança, roteamento, etc...)
+NestJS (utiliza express por baixo dos panos) -> framework 'opinionated' -> Dá um caminho de organização e é mais restrito quanto a implementação das funcionalidades. Geralmente já criar uma estrutura propria de diretórios e conta com varios 'plugins' para operações recorrentes na construção de APIs (autenticação, segurança, roteamento, etc...)
 
 # ORM (Object Relation Mapper)
 
