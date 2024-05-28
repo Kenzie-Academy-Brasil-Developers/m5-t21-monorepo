@@ -25,14 +25,14 @@ Outros ORMs conhecidos do ecosistema do NodeJS:
 
 Instalando o prisma:
 
-```
-// -D é uma frag equivalente a --save-dev. Salvará o pacote como dependencia de desenvolvimento
+```bash
+# -D é uma frag equivalente a --save-dev. Salvará o pacote como dependencia de desenvolvimento
 npm i -D prisma
 ```
 
 Inicializar o prisma no projeto (rodar 1x no inicio de cada projeto)
 
-```
+```bash
 npx prisma init
 ```
 
@@ -47,13 +47,13 @@ Deve também ser criado um arquivo `.env.example` que conterá **apenas o nome d
 
 .env (com os valores utilizados na aplicação, e estando no .gitignore)
 
-```
+```bash
 DATABASE_URL="postgresql://chan:1234@localhost:5432/m5-t21?schema=public"
 ```
 
 .env.example (com valores de EXEMPLO (não reais). Não deve ir no .gitignore)
 
-```
+```bash
 // URL de conexão com o postgres
 DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 ```
@@ -64,7 +64,7 @@ Todas as alterações estruturais precisam ser seguidas pela aplicação de uma 
 
 Aplicando uma migração:
 
-```
+```bash
 npx prisma migrate dev
 ```
 
@@ -87,31 +87,31 @@ Forma com que diretórios e arquivos são organizados, além da forma com que el
 
 Inicializa o package.json
 
-```
+```bash
 npm init -y
 ```
 
 Instalando pacotes
 
-```
+```bash
 npm i --save-dev ts-node-dev typescript
 ```
 
 Inicializando o tsconfig.json (arquivo de configuração com as regras que o TS aplicará no projeto)
 
-```
+```bash
 npx tsc --init
 ```
 
 Instalando express
 
-```
+```bash
 npm i express
 ```
 
 Instalando @types do express (tipagens do TS sempre como dependencia de desenvolvimento)
 
-```
+```bash
 npm i --save-dev @types/express
 ```
 
