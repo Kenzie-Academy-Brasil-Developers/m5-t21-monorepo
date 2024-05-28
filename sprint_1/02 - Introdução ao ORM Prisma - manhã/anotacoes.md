@@ -40,8 +40,8 @@ npx prisma init
 
 Centralizar variáveis de ambiente, com dados sensíveis da aplicação.
 
-CRIME INAFIANÇAVEL VERSIONAR ARQUIVO .env (sempre devem estar no .gitignore)
-CRIME INAFIANÇAVEL VERSIONAR NODE_MODULES (sempre deve estar no .gitignore)
+- **_CRIME INAFIANÇAVEL VERSIONAR ARQUIVO .env (sempre devem estar no .gitignore)_**
+- **_CRIME INAFIANÇAVEL VERSIONAR NODE_MODULES (sempre deve estar no .gitignore)_**
 
 Deve também ser criado um arquivo `.env.example` que conterá **apenas o nome das variáveis de ambientes utilizadas, com um exemplo de valor e o que elas significam.**
 
