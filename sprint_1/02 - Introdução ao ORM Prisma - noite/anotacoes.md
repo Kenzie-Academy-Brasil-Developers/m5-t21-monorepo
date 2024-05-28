@@ -1,55 +1,124 @@
-# ORM (Object Relational Mapper)
+# Diferenças entre frameworks para Backend
 
-Funcionará como um 'tradutor' de JS -> SQL / SQL -> JS
+Express -> framework 'non opinionated' -> temos que criar a arquitetura (divisão de pastas e arquivos) manualmente
 
-- Prisma ORM
-- Drizzle
+NestJS (utiliza express por baixo dos panos) -> framework 'opinionated' -> Dá um caminho de organização e é mais restrito quanto a implementação das funcionalidades. Geralmente já criar uma estrutura propria de diretórios e conta com varios 'plugins' para operações recorrentes na construção de APIs (autenticação, segurança, roteamento, etc...)
+
+# ORM (Object Relation Mapper)
+
+Será um tradutor de código SQL -> JS e JS -> SQL
+Posso usar qualquer banco de dados:
+
+- Postgres (SQL)
+- MySQL (SQL)
+- SQLServer (SQL)
+- SQLite3 (SQL)
+- MongoDB (NoSQL) -> ORM -> ODM (Object Document Mapper)
+
+Outros ORMs conhecidos do ecosistema do NodeJS:
+
 - TypeORM
 - Sequelize
+- Drizzle
 
-Bancos SQL
+## Comandos de terminal
 
-- Postgres (sql)
-- MySQL (sql)
-- SQLServer (sql)
-- SQLite3 (sql)
+Instalando o prisma:
 
-# Arquitetura (forma de organização de diretórios e responsabilidades de arquivos/classes/funções)
+```bash
+# -D é uma frag equivalente a --save-dev. Salvará o pacote como dependencia de desenvolvimento
+npm i -D prisma
+```
 
-- MVC (Model View Controller)
-- Arquitetura Limpa / Design Patterns
+Inicializar o prisma no projeto (rodar 1x no inicio de cada projeto)
 
-## Serviço
+```bash
+npx prisma init
+```
 
-- Lógica de negócio (regras)
+## Arquivo .env
+
+Centralizar variáveis de ambiente, com dados sensíveis da aplicação.
+
+- **_CRIME INAFIANÇAVEL VERSIONAR ARQUIVO .env (sempre devem estar no .gitignore)_**
+- **_CRIME INAFIANÇAVEL VERSIONAR NODE_MODULES (sempre deve estar no .gitignore)_**
+
+Deve também ser criado um arquivo `.env.example` que conterá **apenas o nome das variáveis de ambientes utilizadas, com um exemplo de valor e o que elas significam.**
+
+.env (com os valores utilizados na aplicação, e estando no .gitignore)
+
+```bash
+DATABASE_URL="postgresql://chan:1234@localhost:5432/m5-t21?schema=public"
+```
+
+.env.example (com valores de EXEMPLO (não reais). Não deve ir no .gitignore)
+
+```bash
+// URL de conexão com o postgres
+DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+```
+
+## Migrations
+
+Todas as alterações estruturais precisam ser seguidas pela aplicação de uma migration. É como se fosse um 'commit' de versionamento do banco.
+
+Aplicando uma migração:
+
+```bash
+npx prisma migrate dev
+```
+
+# Arquitetura
+
+Forma com que diretórios e arquivos são organizados, além da forma com que eles se conversam.
+
+## Controllers
+
+- Lidar com as requisições HTTP e mapea-las para as funções apropriadas nos services.
+- Intermediário entre o Client (quem faz a request) e a lógica de negócio (service)
+
+## Services
+
+- Lógica de negócio da aplicação
 - Interage com a camada de dados (prisma)
 - Processa os dados antes de retornar para o controller
 
-## Controlador
+### Comandos gerais de terminal para inicar um projeto TS express
 
-- Lidar com as requisições HTTP e mapeá-las para as funções apropriadas nos serviços
-- Intermediário entre o CLient (quem faz a request) entre a lógica de negócio (services)
+Inicializa o package.json
 
-# Variáveis de Ambiente
-
-Ilegal versionar arquivo .env (tem informações sensível da aplicação)
-
-# Inicializar o package.json
-
-```
+```bash
 npm init -y
+```
+
+Instalando pacotes
+
+```bash
+npm i --save-dev ts-node-dev typescript
+```
+
+Inicializando o tsconfig.json (arquivo de configuração com as regras que o TS aplicará no projeto)
+
+```bash
+npx tsc --init
+```
+
+Instalando express
+
+```bash
 npm i express
 ```
 
-```
-npm i -D typescript
-npm i -D ts-node-dev
+Instalando @types do express (tipagens do TS sempre como dependencia de desenvolvimento)
+
+```bash
 npm i --save-dev @types/express
 ```
 
-Instalando prisma
+# Moldando o formato dos dados
 
-```
-npm i -D prisma
-npx prisma migrate dev
-```
+- Managers (gerentes)
+  id
+  name
+  email
+  createdAt
