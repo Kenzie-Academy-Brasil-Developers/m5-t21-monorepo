@@ -151,3 +151,11 @@ Prisma Studio
 ```
 npx prisma studio
 ```
+
+## Relacionamentos 1:1 e 1:N
+
+- Relacionamento 1-N -> Chave estrangeira SEMPRE do lado N da relação.
+- Relacionamento 1-1 -> Preciso avaliar onde colocar a chave estrangeira com a
+  regra de negócio do projeto. A diferença do 1-1 do 1-N é que o 1-1 tem a chave estrangeira
+  UNICA, definindo que um registro X pode ser associado a somente 1 registro Y, e um registro Y pode
+  ser associado apenas a 1 registro X.
