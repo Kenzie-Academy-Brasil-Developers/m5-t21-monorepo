@@ -166,7 +166,7 @@ npx prisma studio
 Sempre pensar em formar de quebrar a lógica da sua aplicação:
 
 - Como quebrar a rota POST /managers ?
-  - Enviar um body vazio (tenho chaves obrigatórias que DEVEM ser passadas no body de um POST).
+  - Enviar um body vazio (tenho chaves obrigatórias definidas no schema da tabela que DEVEM ser passadas no body de um POST).
   - Enviar um body com chaves corretas mas tipos incorretos.
   - Enviar um body com a chave name com mais de 20 caracteres.
   - Enviar chaves a mais do que a table comporta
