@@ -163,8 +163,16 @@ npx prisma studio
 
 # Dia 4
 
+Sempre pensar em formar de quebrar a lógica da sua aplicação:
+
 - Como quebrar a rota POST /managers ?
   - Enviar um body vazio (tenho chaves obrigatórias que DEVEM ser passadas no body de um POST).
   - Enviar um body com chaves corretas mas tipos incorretos.
   - Enviar um body com a chave name com mais de 20 caracteres.
   - Enviar chaves a mais do que a table comporta
+
+O zod lidará com a validação de entrada de body da nossa aplicação:
+
+```bash
+npm i zod
+```
