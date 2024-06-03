@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Manager {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(20)
+  email     String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+
+  // Campo Virtual
+  project Project?
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  description String   @db.Text
+  createdAt   DateTime @default(now())
+
+  // FK (Foreign Key - Chave Estrangeira)
+  managerId Int     @unique
+  // Campo virtual (nao será criado na TABELA do banco)
+  manager   Manager @relation(fields: [managerId], references: [id])
+
+  // 
+  tasks Task[]
+}
+
+model Task {
+  id          Int       @id @default(autoincrement()) @map("id")
+  title       String    @map("title") @db.VarChar(255)
+  description String    @map("description") @db.Text
+  dueDate     DateTime? @map("due_data") @db.Date
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  // FK (Foreign Key - Chave Estrangeira)
+  projectId Int
+  // Campo virtual (nao será criado na TABELA do banco)
+  project   Project @relation(fields: [projectId], references: [id])
+
+  // Renomear tabela
+  @@map("tasks")
+}
