@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Manager {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(20)
+  email     String   @unique @db.VarChar(255)
+  isActive  Boolean  @default(true)
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  projects Project[]
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  description String   @db.Text
+  createdAt   DateTime @default(now())
+
+  managerId Int
+  manager   Manager @relation(fields: [managerId], references: [id])
+
+  tasks Task[]
+
+  // N:N - Devs (Atributo virtual)
+  devs Dev[]
+}
+
+model Task {
+  id          Int       @id @default(autoincrement())
+  title       String    @db.VarChar(255)
+  description String    @db.Text
+  dueDate     DateTime? @db.Date
+  isCompleted Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+
+  // 1-N (project-tasks)
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id])
+
+  // 1-N (dev-tasks)
+  devId Int?
+  dev   Dev? @relation(fields: [devId], references: [id])
+}
+
+model Dev {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+
+  // N:N Project (Atributo virtual)
+  projects Project[]
+  Task     Task[]
+}
