@@ -17,11 +17,10 @@ export class AccountService {
     // payload.password = await hashPassword(payload.password);
     // const newAccount = await prisma.account.create({ data: payload });
 
-    // V2.1 - HASHEANDO A SENHA MAS VOLTANDO PASSWORD NA REQUEST (em outro arquivo)
+    // V3 - HASHEANDO A SENHA E NÃO VOLTANDO PASSWORD NA REQUEST (em outro arquivo)
     payload.password = await hashPassword(payload.password);
     const newAccount = await prisma.account.create({ data: payload });
 
-    // V3 - HASHEANDO A SENHA E NÃO VOLTANDO PASSWORD NA REQUEST (em outro arquivo)
     return accountWithoutPasswordSchema.parse(newAccount);
   };
 
