@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ZodError, ZodSchema } from "zod";
+import { ZodSchema } from "zod";
 import { BodyValidationError } from "../errors";
 
 export function validateBody(schema: ZodSchema) {

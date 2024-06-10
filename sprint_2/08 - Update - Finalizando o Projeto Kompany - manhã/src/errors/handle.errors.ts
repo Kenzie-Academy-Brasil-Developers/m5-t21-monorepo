@@ -12,24 +12,7 @@ export function handleGlobalErrors(
     // return res.status(error.statusCode).json({ errors: error.errors });
     // return res.status(error.statusCode).json(error.format());
     // return res.status(error.statusCode).json(error.flatten());
-    //   return res
-    //     .status(error.statusCode)
-    //     .json({ errors: error.flatten().fieldErrors });
-    // }
     return res.status(error.statusCode).json(error.flatten().fieldErrors);
-
-    /**
-     * {
-     *  "statusCode": 400,
-     *  "errors": {
-     * }
-     *  }
-     * {
-     *  "success": true/false,
-     *  "errors": {
-     * }
-     *  }
-     */
   }
 
   if (error instanceof ApiError) {
