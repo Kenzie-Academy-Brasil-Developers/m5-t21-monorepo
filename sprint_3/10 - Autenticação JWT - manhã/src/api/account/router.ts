@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { AccountController } from "./controller";
-import { validateBody } from "../@shared/validator/body.validator";
+import { validateBody } from "../@shared/validators/body.validator";
 import { accountCreateSchema } from "./schemas";
 
 export const accountRouter = Router();
