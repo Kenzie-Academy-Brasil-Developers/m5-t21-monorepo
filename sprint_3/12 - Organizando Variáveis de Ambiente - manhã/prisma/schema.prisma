@@ -13,6 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ROLE: Doctor, Nurse, Lab Tecnician [Enum]
 model Account {
   id        Int      @id @default(autoincrement())
   fullName  String   @map("full_name") @db.VarChar(100)
