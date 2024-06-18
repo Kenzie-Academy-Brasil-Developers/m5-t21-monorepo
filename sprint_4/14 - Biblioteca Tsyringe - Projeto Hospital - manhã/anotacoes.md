@@ -54,7 +54,7 @@ import "reflect-metadata";
 Formas:
 
 1. Utilizar enum para definir os diferentes níveis da conta.
-2. Criar uma tabela de ROLES e associar com account 1:N (account : role)
+2. Criar uma tabela de ROLES e associar com account 1:N (role : account)
 
 Rotas:
 
