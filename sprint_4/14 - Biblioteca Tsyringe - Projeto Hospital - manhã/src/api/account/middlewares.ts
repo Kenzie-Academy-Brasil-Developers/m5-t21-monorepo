@@ -8,6 +8,7 @@ export function isAccountOwner(
 ) {
   const accountIdParam = req.params.id;
 
+  // TODO: Ajustar lógica, agora no res.locals temos o payload inteiro do JWT
   const { accountId } = res.locals;
 
   if (accountIdParam !== accountId) {
