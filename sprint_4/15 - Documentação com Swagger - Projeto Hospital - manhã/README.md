@@ -52,3 +52,4 @@ npm run dev
 ```
 
 Navegue até http://localhost:3000 para acessar a API
+Navegue até http://localhost:3000/api/v1/docs para acessar a Documentação das rotas.
