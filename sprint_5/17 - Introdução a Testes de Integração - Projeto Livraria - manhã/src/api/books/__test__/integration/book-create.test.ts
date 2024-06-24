@@ -26,7 +26,7 @@ describe("POST /api/books - Book creation integration tests", () => {
     await prisma.book.deleteMany();
   });
 
-  test("should be able to create a book", async () => {
+  test("should be able to create a book with valid data", async () => {
     // SETUP
     const bookData = {
       title: "Titulo Teste",
