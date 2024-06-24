@@ -32,7 +32,7 @@ describe("POST /api/books - Book creation integration tests", () => {
       title: "Titulo Teste",
       author: "Autor Teste",
       publicationYear: 2023,
-      available: true,
+      available: false,
     };
 
     const response = await apiClient.post("/api/books").send(bookData);
