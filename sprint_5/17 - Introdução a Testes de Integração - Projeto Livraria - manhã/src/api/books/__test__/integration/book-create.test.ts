@@ -47,6 +47,12 @@ describe("POST /api/books - Book creation integration tests", () => {
 
     expect(response.body).toEqual(expectedResponseBody);
     expect(response.status).toBe(201);
+
+    /* TODO:
+      - Como assegurar se o dado realmente foi criado no banco?
+        - Além do retorno de status code e body, preciso assegurar que o 
+        registro foi criado no banco.
+    */
   });
 
   test("should return an error if creating a book with empty body", async () => {
