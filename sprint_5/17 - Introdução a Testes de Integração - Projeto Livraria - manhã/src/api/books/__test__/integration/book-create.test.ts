@@ -55,7 +55,7 @@ describe("POST /api/books - Book creation integration tests", () => {
     */
   });
 
-  test("should return an error if creating a book with empty body", async () => {
+  test("should return an error if creating a book without required fields", async () => {
     const response = await apiClient.post("/api/books").send({});
 
     // const expectedResponseBody = {
