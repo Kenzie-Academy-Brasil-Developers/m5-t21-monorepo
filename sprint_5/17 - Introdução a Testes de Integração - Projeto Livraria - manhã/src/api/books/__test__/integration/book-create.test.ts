@@ -9,7 +9,11 @@ import { apiClient } from "../../../@shared/tests/setupFiles";
   - Refatoração para controller (REFACTOR)
 
 
-  SETUP / TEARDOWN
+  SETUP - O que preciso para testar a criação de um livro?
+    - Forma de realizar requisição para a api (supertest [apiClient])
+    - Dados sobre o livro para ser enviado no body do post
+  TEARDOWN - O que preciso fazer após testar a criação de um livro?
+    - Deletar o livro criado para que não interfira em outros testes.
 */
 
 describe("POST /api/books - Book creation integration tests", () => {
