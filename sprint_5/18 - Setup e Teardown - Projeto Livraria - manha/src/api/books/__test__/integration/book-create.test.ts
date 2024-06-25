@@ -226,7 +226,7 @@ describe("POST /api/books - Book creation integration tests", () => {
     expect(bookCount).toBe(0);
   });
 
-  test("should return an error if creating a book with `available` field default to true if not specified", async () => {
+  test("should be able to create a book with `available` field default to true if not specified", async () => {
     const bookData = {
       title: "Book Test",
       author: "Author Test",
