@@ -89,29 +89,42 @@ describe("GET /api/books - Book list integration tests", () => {
 
     // Assert - Verificação(assert) do teste
     expect(response.status).toBe(200);
+
+    expect(response.body).toEqual(
+      bookListData.map((book) => {
+        return {
+          id: expect.any(Number),
+          title: book.title,
+          author: book.author,
+          publicationYear: book.publicationYear,
+          available: book.available,
+        };
+      })
+    );
+
     // TODO: Melhorar o teste para testar com registros retornados.
-    expect(response.body).toEqual([
-      {
-        id: expect.any(Number),
-        title: "To Kill a Mockingbird",
-        author: "Harper Lee",
-        publicationYear: 1960,
-        available: true,
-      },
-      {
-        id: expect.any(Number),
-        title: "1984",
-        author: "George Orwell",
-        publicationYear: 1949,
-        available: false,
-      },
-      {
-        id: expect.any(Number),
-        title: "The Great Gatsby",
-        author: "F. Scott Fitzgerald",
-        publicationYear: 1925,
-        available: true,
-      },
-    ]);
+    // expect(response.body).toEqual([
+    //   {
+    //     id: expect.any(Number),
+    //     title: "To Kill a Mockingbird",
+    //     author: "Harper Lee",
+    //     publicationYear: 1960,
+    //     available: true,
+    //   },
+    //   {
+    //     id: expect.any(Number),
+    //     title: "1984",
+    //     author: "George Orwell",
+    //     publicationYear: 1949,
+    //     available: false,
+    //   },
+    //   {
+    //     id: expect.any(Number),
+    //     title: "The Great Gatsby",
+    //     author: "F. Scott Fitzgerald",
+    //     publicationYear: 1925,
+    //     available: true,
+    //   },
+    // ]);
   });
 });
