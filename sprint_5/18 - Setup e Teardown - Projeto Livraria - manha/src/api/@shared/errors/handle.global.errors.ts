@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { ApiError } from "./api.errors";
-import { BodyValidationError } from "../validators";
+import { BodyValidationError } from "./custom.errors";
 
 export function handleGlobalErrors(
   error: Error,
