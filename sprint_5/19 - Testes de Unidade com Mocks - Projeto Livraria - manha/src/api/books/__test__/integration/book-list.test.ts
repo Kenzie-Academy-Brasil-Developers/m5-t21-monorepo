@@ -11,42 +11,15 @@ import { apiClient } from "../../../@shared/tests/setupFiles";
 
 describe("GET /api/books - Book list integration tests", () => {
   // SETUP (executado antes de algo)
-
   // Executa apenas 1x pela suite de testes do describe que ele está inserido antes de todos os testes
   beforeAll(async () => {
     await prisma.book.deleteMany();
-    console.log(`
-    ######################
-      beforeAll executado
-    ######################
-    `);
   });
 
-  beforeEach(() => {
-    console.log(`
-      ######################
-        beforeEach executado
-      ######################
-      `);
-  });
-
-  // TEARDOWN (Executados depois de algo)
-  // Executa 1x depois de todos os testes do describe
-  afterAll(() => {
-    console.log(`
-      ######################
-      afterAll executado
-      ######################
-      `);
-  });
-
+  // TEAR DOWN (executado depois de algo)
   // Executa depois de cada teste do describe
-  afterEach(() => {
-    console.log(`
-      ######################
-        afterEach executado
-      ######################
-      `);
+  afterEach(async () => {
+    await prisma.book.deleteMany();
   });
 
   test("should return an empty list when no books are available", async () => {
@@ -101,30 +74,5 @@ describe("GET /api/books - Book list integration tests", () => {
         };
       })
     );
-
-    // TODO: Melhorar o teste para testar com registros retornados.
-    // expect(response.body).toEqual([
-    //   {
-    //     id: expect.any(Number),
-    //     title: "To Kill a Mockingbird",
-    //     author: "Harper Lee",
-    //     publicationYear: 1960,
-    //     available: true,
-    //   },
-    //   {
-    //     id: expect.any(Number),
-    //     title: "1984",
-    //     author: "George Orwell",
-    //     publicationYear: 1949,
-    //     available: false,
-    //   },
-    //   {
-    //     id: expect.any(Number),
-    //     title: "The Great Gatsby",
-    //     author: "F. Scott Fitzgerald",
-    //     publicationYear: 1925,
-    //     available: true,
-    //   },
-    // ]);
   });
 });
