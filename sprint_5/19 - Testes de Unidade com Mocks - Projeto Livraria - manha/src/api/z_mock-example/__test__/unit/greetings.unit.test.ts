@@ -1,4 +1,4 @@
-import { GreettingService } from "../../grettings";
+import { GreetingService } from "../../greetings";
 
 /*
   EVENT LOOP
@@ -6,10 +6,10 @@ import { GreettingService } from "../../grettings";
 */
 
 describe("UNIT EXEMPLO: GreetingService", () => {
-  let greetingService: GreettingService;
+  let greetingService: GreetingService;
 
   beforeEach(() => {
-    greetingService = new GreettingService();
+    greetingService = new GreetingService();
   });
 
   afterEach(() => {

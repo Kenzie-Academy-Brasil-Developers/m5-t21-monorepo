@@ -1,4 +1,4 @@
-export class GreettingService {
+export class GreetingService {
   public getCurrentTime() {
     // 2024-06-27T12:37:54.063Z
     const currentTime = new Date();
