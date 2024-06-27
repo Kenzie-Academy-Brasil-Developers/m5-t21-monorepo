@@ -159,7 +159,7 @@ const config: Config = {
   // DUNDER test (double underline)
   // src/api/books/__test__/unit/**/*.test.[jt]s
   // src/api/books/__test__/integration/**/*.test.[jt]s
-  testMatch: ["**/__test__/(unit|integration)/**/*.test.[jt]s"],
+  testMatch: ["**/__tests__/(unit|integration)/**/*.test.[jt]s"],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [

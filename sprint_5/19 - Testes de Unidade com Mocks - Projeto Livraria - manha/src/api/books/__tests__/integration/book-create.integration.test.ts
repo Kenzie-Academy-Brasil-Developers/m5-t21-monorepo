@@ -2,26 +2,9 @@ import { prisma } from "../../../../configs/prisma.config";
 import { apiClient } from "../../../@shared/tests/setupFiles";
 
 /*
-  O ciclo básico do TDD é geralmente composto por três etapas (Red, Green, Refactor). 
-  Testes devem ser INDEPENDENTES.
-  - Rodando teste verificando o status code (RED)
-  - Implementada a rota para retorno de status 201 (GREEN)
-  - Refatoração para controller (REFACTOR)
-  - Rodando o teste novamente, ele assegura o comportamento esperado (GREEN).
-
-  Caso o teste falhe após a refatoração, continuo seguindo o mesmo principio,
-   voltando para o trecho alterado e verificando o que houve para uma nova refatoração
-   que faça o teste passar.
-
-
-  SETUP - O que preciso para testar a criação de um livro?
-    - Forma de realizar requisição para a api (supertest [apiClient])
-    - Dados sobre o livro para ser enviado no body do post
-  TEARDOWN - O que preciso fazer após testar a criação de um livro?
-    - Deletar o livro criado para que não interfira em outros testes.
+  TODO:
+  - Testar com body com chaves corretas, mas com valores de types errados
 */
-
-// TODO: Testar com body com chaves corretas, mas com valores de types errados
 
 describe("INTEGRATION: POST /api/books - Book creation tests", () => {
   // SETUP

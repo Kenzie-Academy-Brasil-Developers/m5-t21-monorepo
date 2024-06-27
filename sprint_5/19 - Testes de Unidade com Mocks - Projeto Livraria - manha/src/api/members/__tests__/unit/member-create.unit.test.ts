@@ -1,6 +1,11 @@
 import { prisma } from "../../../../configs/prisma.config";
 import { MemberService } from "../../service";
 
+/*
+  TODO:
+  - Rodar os testes multiplas vezes para ver se o comportamento está correto
+*/
+
 describe("UNIT: MemberService.create", () => {
   let memberService: MemberService;
 

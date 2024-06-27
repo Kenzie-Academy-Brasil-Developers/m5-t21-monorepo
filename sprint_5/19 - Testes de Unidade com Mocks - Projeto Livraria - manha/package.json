@@ -9,7 +9,7 @@
     "dev": "dotenv -e .env -- tsnd --cls --rs src/server.ts",
     "migrate": "dotenv -e .env -- prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
-    "test": "jest"
+    "test": "jest --runInBand"
   },
   "author": "",
   "license": "ISC",
