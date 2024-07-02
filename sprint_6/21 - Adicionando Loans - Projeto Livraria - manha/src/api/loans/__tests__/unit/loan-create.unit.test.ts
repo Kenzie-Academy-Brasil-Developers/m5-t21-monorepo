@@ -60,7 +60,7 @@ describe("UNIT: LoanService.create", () => {
     expect(1).toBe(1);
   });
 
-  test("shoul throw an error if member does not exist", async () => {
+  test("should throw an error if member does not exist", async () => {
     // AAA
     // Arrange
     mockedMemberService.findById.mockRejectedValueOnce(
