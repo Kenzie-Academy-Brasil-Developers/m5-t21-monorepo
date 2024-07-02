@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { BookController } from "./controller";
 import { container } from "tsyringe";
-import { validateBody } from "../@shared/validators/body.validator";
+import { validateBody } from "../@shared/middlewares/body-validator.middleware";
 import { bookCreateSchema } from "./schemas";
 
 export const bookRouter = Router();
