@@ -1,9 +1,9 @@
 import { LoanStatus } from "@prisma/client";
-import { LoanService } from "../../service";
-import { Loan } from "../../interfaces";
-import { MemberService } from "../../../members/service";
-import { ApiError } from "../../../@shared/errors";
-import { BookService } from "../../../books/service";
+import { LoanService } from "../../../service";
+import { Loan } from "../../../interfaces";
+import { MemberService } from "../../../../members/service";
+import { ApiError } from "../../../../@shared/errors";
+import { BookService } from "../../../../books/service";
 
 const MockMemberService = (): jest.Mocked<MemberService> => {
   return {
