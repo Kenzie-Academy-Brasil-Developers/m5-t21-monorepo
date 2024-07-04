@@ -7,15 +7,7 @@ describe("INTEGRATION: GET /api/books", () => {
     await prisma.book.deleteMany();
   });
 
-  beforeEach(async () => {
-    await prisma.book.deleteMany();
-  });
-
   afterEach(async () => {
-    await prisma.book.deleteMany();
-  });
-
-  afterAll(async () => {
     await prisma.book.deleteMany();
   });
 
