@@ -44,5 +44,5 @@ export function handlePaginationParams(
 
   res.locals = { ...res.locals, page, perPage };
 
-  next();
+  return next();
 }
