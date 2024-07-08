@@ -151,7 +151,9 @@ describe("UNIT: LoanService.create", () => {
     mockedBookService.findById.mockResolvedValueOnce({ id: 1, ...bookData });
 
     // 3.
-    jest.spyOn(prisma.loan, "count").mockResolvedValue(MAX_LOANS_PER_MEMBER);
+    jest
+      .spyOn(prisma.loan, "count")
+      .mockResolvedValueOnce(MAX_LOANS_PER_MEMBER);
 
     // Act - Assert
     await expect(loanService.create(loanValidData)).rejects.toThrow(
