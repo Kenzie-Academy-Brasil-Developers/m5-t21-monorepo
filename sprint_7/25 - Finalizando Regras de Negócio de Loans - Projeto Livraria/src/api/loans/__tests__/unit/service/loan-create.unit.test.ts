@@ -134,7 +134,6 @@ describe("UNIT: LoanService.create", () => {
   });
 
   test("should throw an error if member has reached the maximum number of allowed loans", async () => {
-    // TODO: Implementar o teste
     // AAA
     // Arrange
     // 1.
@@ -166,8 +165,6 @@ describe("UNIT: LoanService.create", () => {
   });
 
   test("should throw an error if loanDate is greater than returnDate", async () => {
-    // TODO: Implementar o teste
-    // AAA
     // Arrange
     // 1.
     // Medida que assegura que o mock nao veio 'infectado'
