@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id              Int     @id @default(autoincrement())
+  title           String  @db.VarChar(255)
+  author          String  @db.VarChar(100)
+  isbn            String  @db.VarChar(13)
+  publicationYear Int     @map("publication_year")
+  available       Boolean @default(true)
+  loans           Loan[]
+
+  @@map("books")
+}
+
+model Member {
+  id               Int      @id @default(autoincrement())
+  name             String
+  cpf              String   @unique @db.VarChar(11)
+  phoneNumber      String   @map("phone_number")
+  registrationDate DateTime @default(now()) @map("registration_date")
+
+  loans Loan[]
+
+  @@map("members")
+}
+
+model Loan {
+  id         Int        @id @default(autoincrement())
+  loanDate   DateTime   @default(now()) @map("loan_date")
+  returnDate DateTime   @map("return_date")
+  status     LoanStatus @default(ACTIVE)
+
+  // amount Decimal @db.Decimal(10, 2)
+  // amount BigInt @db.BigInt (range maior de numeros)
+  amount Int
+
+  bookId Int  @map("book_id")
+  book   Book @relation(fields: [bookId], references: [id])
+
+  memberId Int    @map("member_id")
+  member   Member @relation(fields: [memberId], references: [id])
+
+  fine Fine?
+
+  @@map("loans")
+}
+
+enum LoanStatus {
+  ACTIVE
+  RETURNED
+  CANCELLED
+}
+
+model Fine {
+  id     Int @id @default(autoincrement())
+  // amount Decimal @db.Decimal(10, 2)
+  amount Int
+
+  loanId Int  @unique @map("loan_id")
+  loan   Loan @relation(fields: [loanId], references: [id])
+
+  @@map("fines")
+}
