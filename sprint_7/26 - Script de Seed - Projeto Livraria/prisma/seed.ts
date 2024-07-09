@@ -24,7 +24,7 @@ async function main() {
   );
 
   const unavailableBooks = await BookFactory.createMany(
-    AVAILABLE_BOOKS_TO_CREATE,
+    UNAVAILABLE_BOOKS_TO_CREATE,
     { available: false }
   );
 
