@@ -5,6 +5,7 @@
 
 # Sqlite3
 *.db
+*-journal
 
 # Logs
 logs
