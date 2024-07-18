@@ -3,7 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserEntity } from './entities/user.entity';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { plainToClass } from 'class-transformer';
+import { plainToClass, plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class UsersService {
@@ -28,13 +28,15 @@ export class UsersService {
     // return rest;
 
     // forma 2:
-    return plainToClass(UserEntity, createdUser);
+    // return plainToClass(UserEntity, createdUser);
+    return plainToInstance(UserEntity, createdUser);
   }
 
   async findAll() {
     const users = await this.prisma.user.findMany();
 
-    return users.map((user) => plainToClass(UserEntity, user));
+    // return users.map((user) => plainToClass(UserEntity, user));
+    return plainToInstance(UserEntity, users);
   }
 
   findOne(id: number) {
